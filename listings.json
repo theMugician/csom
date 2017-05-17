@@ -1,0 +1,37 @@
+[
+  {
+    "type": "Mansion",
+    "desc": "This beautiful home in Point Grey is going for well over 2.4 Million. Start saving up for that down payment.",
+    "img": "1.jpg"
+  },
+  {
+    "type": "Shack",
+    "desc": "This is definitely a shack",
+    "img": "2.jpg"
+  },
+  {
+    "type": "Shack",
+    "desc": "This a Shack. There is now way Jim Pattison lives here",
+    "img": "3.jpg"
+  },
+  {
+    "type": "Shack",
+    "desc": "Just another shack. No mansion here",
+    "img": "4.jpg"
+  },
+  {
+    "type": "Mansion",
+    "desc": "Another beautiful point grey home that closed for over 9 million dollars. Most likely it will be a tear down.",
+    "img": "5.jpg"
+  },
+  {
+    "type": "Mansion",
+    "desc": "This glamourous shed sold for $1,190,000",
+    "img": "6.jpg"
+  },
+  {
+    "type": "Mansion",
+    "desc": "This 3 bedroom home is going for only $4,188,000. What a steal of a deal.",
+    "img": "7.jpg"
+  }
+]

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jTinder Touch Slider</title>
+	<script
+	  src="https://code.jquery.com/jquery-1.12.4.js"
+	  integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+	  crossorigin="anonymous">
+	</script>
+	<link rel="stylesheet" type="text/css" href="dist/main.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Amatic+SC|Pinyon+Script|Tangerine" rel="stylesheet">
+</head>
+<body>
+  <div class="background">
+  </div>
+  <div class="bottom">
+  </div>
+  <nav>
+    <div class="logo">
+      <span class="crackhouse">Crackhouse</span><span class="mansion">or Mansion</span>
+    </div>
+      
+    <div class="social">
+      <button class="fb btn">
+        SHARE
+      </button>
+    </div>
+  </nav>
+	<!-- start padding container -->
+	<div class="wrap">
+		<!-- start jtinder container -->
+		<div id="tinderslide">
+			<ul>
+      <!--
+				<li class="pane1 active">
+					<div class="item">
+  					<div class="img"></div>
+  					<div class="like"></div>
+  					<div class="dislike"></div>
+          </div>  
+				</li>
+				<li class="pane2 next">
+          <div class="item">
+  					<div class="img"></div>
+  					<div class="like"></div>
+  					<div class="dislike"></div>
+          </div>  
+				</li>
+				<li class="pane3 last">
+          <div class="item">
+  					<div class="img"></div>
+  					<div class="like"></div>
+  					<div class="dislike"></div>
+          </div>  
+				</li>
+				<li class="pane4">
+          <div class="item">
+  					<div class="img"></div>
+  					<div class="like"></div>
+  					<div class="dislike"></div>
+          </div>
+				</li>
+				<li class="pane5">
+          <div class="item">
+  					<div class="img"></div>
+  					<div class="like"></div>
+  					<div class="dislike"></div>
+          </div>  
+				</li>
+        -->
+			</ul>
+
+      <div class="message">
+        <h1 class="correct">Correct!</h1>
+        <h2 class="mansion">Mansion</h2>
+        <p>This beautiful home in Point Grey is going for well over 2.4 Million. Start saving up for that down payment.
+        </p>
+        <button class="btn next">NEXT</button>
+      </div>
+		</div>
+		<!-- end jtinder container -->
+	</div>
+	<!-- end padding container -->
+
+	<!-- jTinder trigger by buttons  -->
+	<div class="actions">
+    <div class="crackhouse">
+		  <p>Crackhouse</p><button href="#" class="dislike"><i class="fa fa-times"></i></button>
+    </div>
+    <div class="mansion">
+      <button href="#" class="like"><i class="fa fa-check"></i></button><p>Mansion</p>
+    </div>
+	</div>
+
+	<!-- jTinder status text  -->
+	<div id="status"></div>
+
+	<!-- jQuery lib -->
+	<script type="text/javascript" src="dist/main.js"></script>
+</body>
+</html>
