@@ -167,8 +167,8 @@
             item += "<li data-type=\"" + elm.type + "\" data-desc=\"" + elm.desc + "\" class=\"pane" + index + status + "\">";
             item += "  <div class=\"item\">";
             item += "    <div style='background-image: url(img\/" + elm.img + ")' class=\"img\"><\/div>";
-            item += "    <div class=\"like\">Mansion<\/div>";
-            item += "    <div class=\"dislike\">Shack<\/div>";
+            item += "    <div class=\"like\"><\/div>";
+            item += "    <div class=\"dislike\"><\/div>";
             item += "  <\/div>  ";
             item += "<\/li>";
 

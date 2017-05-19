@@ -226,9 +226,10 @@ nav {
       background: url("../img/1.jpg") no-repeat scroll center center;
       p {
         font-size: 18px;
-        font-weight: bold;
         color: $color-base;
         z-index: 2;
+        max-width: 500px;
+        margin: 15px auto;
       }
       .play {
         width: 180px;
@@ -236,6 +237,7 @@ nav {
         background: $color-like;
         color: #fff;
         z-index: 2;
+        margin-top: 10px;
         &:hover {
           background: $color-like;
           color: #fff;
@@ -302,7 +304,7 @@ nav {
     }
   }
   .like {
-    background: url("../img/liked.png") no-repeat scroll 0 0;
+    background: url("../img/mansion.png") no-repeat scroll 0 0;
     opacity: 0;
     height: 80px;
     position: absolute;
@@ -320,7 +322,7 @@ nav {
     backface-visibility: hidden;
   }
   .dislike {
-    background: url("../img/liked.png") no-repeat scroll 0 0;
+    background: url("../img/shack.png") no-repeat scroll 0 0;
     opacity: 0;
     height: 80px;
     position: absolute;
@@ -338,7 +340,6 @@ nav {
     backface-visibility: hidden;
     right: 45px;
     left: auto;
-    background: url("../img/nope.png") no-repeat scroll 0 0;
   }
   .img {
     height: 100%;
