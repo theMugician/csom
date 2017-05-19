@@ -194,11 +194,9 @@ nav {
       text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
     }
   }
-  .message {
+  .modal {
     width: calc(100% - 20px);
     height: calc(100% - 20px);
-    top: 0;
-    left: 0;
     z-index: 5;
     position: absolute;
     transform: translate(3200px, 0);
@@ -218,38 +216,89 @@ nav {
     &.display {
       transform: translate(0, 0);
     }
-    .mansion {
-      font-family: 'Tangerine', cursive;
-      font-size: 48px;
-      color: $color-blue;
+    .home {
+      height: 100%;
+      position: relative;
+      font-size: 18px;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      background: url("../img/1.jpg") no-repeat scroll center center;
+      p {
+        font-size: 18px;
+        font-weight: bold;
+        color: $color-base;
+        z-index: 2;
+      }
+      .play {
+        width: 180px;
+        margin: 0 auto;
+        background: $color-like;
+        color: #fff;
+        z-index: 2;
+        &:hover {
+          background: $color-like;
+          color: #fff;
+          z-index: 2;
+        }
+      }
+      &.display {
+        display: flex;
+      }
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+        background: rgba(0,0,0,0.5);
+        content: " ";
+      }
     }
-    .crackhouse {
-      font-family: 'Amatic SC', cursive;
-      font-size: 40px;
-      color: $color-blue;
-    }
-    .correct {
-      color: $color-like;
-      font-size: 40px;
-    }
-    .error {
-      color: $color-pass;
-      font-size: 48px;
-    }  
-    p {
-      max-width: 500px;
-      margin: 0 auto;
-      color: #9B9B9B;
-    }
-    .btn.next {
-      margin-top: 40px;
-      border: 3px solid $color-blue;
-      color: $color-blue;
-      &:hover {
+    .message {
+      position: relative;
+      display: none;
+      &.display {
+        display: block;
+      }
+      .mansion {
+        font-family: 'Tangerine', cursive;
+        font-size: 48px;
+        color: $color-blue;
+      }
+      .crackhouse {
+        font-family: 'Amatic SC', cursive;
+        font-size: 40px;
+        color: $color-blue;
+      }
+      .correct {
+        color: $color-like;
+        font-size: 40px;
+      }
+      .error {
+        color: $color-pass;
+        font-size: 48px;
+      }  
+      p {
+        max-width: 500px;
+        margin: 0 auto;
+        color: #9B9B9B;
+      }
+      .next-btn {
         margin-top: 40px;
         border: 3px solid $color-blue;
         color: $color-blue;
+        &:hover {
+          margin-top: 40px;
+          border: 3px solid $color-blue;
+          color: $color-blue;
+        }
       }
+    }  
+    .finish {
+      position: relative;
+      display: none;
     }
   }
   .like {

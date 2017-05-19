@@ -17,16 +17,19 @@
 			threshold: 1,
 			likeSelector: '.like',
 			dislikeSelector: '.dislike',
-			handlerDisabled: false
+			handlerDisabled: true
 		};
 
 	var container = null;
 	var panes = null;
+	var modal = null;
+	var home = null;	
 	var message_container = null;
 	var message_header = null;
 	var message_type = null;
 	var message_desc = null;
 	var message_button = null;
+	var play_button = null;
 	var $that = null;
 	var xStart = 0;
 	var yStart = 0;
@@ -87,19 +90,22 @@
       panes = $(">ul>li", element);
 			pane_width = container.width();
 			pane_count = panes.length;
+			home = $(".home");
 			//current_pane = panes.length - 1;
 			current_pane = 0;
-
+			modal = $(".modal");
 			message_container = $(".message");
 			message_header = $(".message h1");
 			message_type = $(".message h2");
 			message_desc = $(".message p");
-			message_button = $(".message .next.btn");
+			message_button = $(".message .next-btn.btn");
+			play_button = $(".modal .play.btn");
 
 			$(element).bind('touchstart mousedown', this.handler);
 			$(element).bind('touchmove mousemove', this.handler);
 			$(element).bind('touchend mouseup', this.handler);
-			message_button.bind('click', this.closeMessage);
+			message_button.bind('click', this.closeModal);
+			play_button.bind('click', this.play);
 		},
 
 		showPane: function (index) {
@@ -114,15 +120,28 @@
 			var desc = item.data("desc");
 			var header = ( type === chosen ? "Correct!" : "Wrong!" );
 			var header_class = ( type === chosen ? "correct" : "error" );
-			message_container.addClass("display");
+			modal.addClass("display");
 			message_header.html(header).addClass(header_class);
 			message_type.html(type).addClass(type);
 			message_desc.html(desc);
 		},
 
-		closeMessage: function () {
+		closeModal: function () {
 			$that.settings.handlerDisabled = false;
-			message_container.removeClass("display");
+			modal.removeClass("display");
+		},
+
+		play: function () {
+			$that.settings.handlerDisabled = false;
+			modal.removeClass("display");
+			home.removeClass("display");
+			message_container.addClass("display");
+		},
+
+		reset: function () {
+			$that.
+			$that.settings.handlerDisabled = false;
+			modal.removeClass("display");
 		},
 
     renderList: function() {
@@ -148,8 +167,8 @@
             item += "<li data-type=\"" + elm.type + "\" data-desc=\"" + elm.desc + "\" class=\"pane" + index + status + "\">";
             item += "  <div class=\"item\">";
             item += "    <div style='background-image: url(img\/" + elm.img + ")' class=\"img\"><\/div>";
-            item += "    <div class=\"like\"><\/div>";
-            item += "    <div class=\"dislike\"><\/div>";
+            item += "    <div class=\"like\">Mansion<\/div>";
+            item += "    <div class=\"dislike\">Shack<\/div>";
             item += "  <\/div>  ";
             item += "<\/li>";
 
