@@ -259,42 +259,70 @@ nav {
       }
     }
     .message {
+      height: 100%;
       position: relative;
+      //font-size: 18px;
       display: none;
+      flex-direction: column;
+      justify-content: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
       &.display {
-        display: block;
+        display: flex;
       }
-      .mansion {
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+        background: rgba(0,0,0,0.5);
+        content: " ";
+      }
+      h1,h2,p, .btn {
+        z-index: 2;
+      }
+      .Mansion {
         font-family: 'Tangerine', cursive;
         font-size: 48px;
-        color: $color-blue;
+        color: $color-base;
+        margin-bottom: 10px;
       }
-      .crackhouse {
+      .Shack {
         font-family: 'Amatic SC', cursive;
         font-size: 40px;
-        color: $color-blue;
+        color: $color-base;
+        margin-bottom: 10px;
       }
       .correct {
+        margin-bottom: 10px;
         color: $color-like;
         font-size: 40px;
       }
       .error {
+        margin-bottom: 10px;
         color: $color-pass;
-        font-size: 48px;
+        font-size: 40px;
       }  
       p {
         max-width: 500px;
         margin: 0 auto;
-        color: #9B9B9B;
+        color: $color-base;
       }
       .next-btn {
+        border: 3px solid $color-base;
+        color: $color-base;
+        width: 180px;
+        margin: 0 auto;
         margin-top: 40px;
-        border: 3px solid $color-blue;
-        color: $color-blue;
         &:hover {
+          width: 180px;
+          margin: 0 auto;
           margin-top: 40px;
-          border: 3px solid $color-blue;
-          color: $color-blue;
+          border: 3px solid $color-base;
+          color: $color-base;
         }
       }
     }  

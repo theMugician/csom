@@ -118,10 +118,14 @@
 			//var cur = panes.eq(current_pane);
 			var type = item.data("type");
 			var desc = item.data("desc");
+			var img = "url(img/" + item.data("img");
 			var header = ( type === chosen ? "Correct!" : "Wrong!" );
 			var header_class = ( type === chosen ? "correct" : "error" );
 			modal.addClass("display");
+			message_container.css("background-image", img);
+			message_header.removeClass();
 			message_header.html(header).addClass(header_class);
+			message_type.removeClass();
 			message_type.html(type).addClass(type);
 			message_desc.html(desc);
 		},
@@ -164,7 +168,7 @@
 				}
 				
         var item="";
-            item += "<li data-type=\"" + elm.type + "\" data-desc=\"" + elm.desc + "\" class=\"pane" + index + status + "\">";
+            item += "<li data-type=\"" + elm.type + "\" data-desc=\"" + elm.desc + "\" data-img=\"" + elm.img + "\" class=\"pane" + index + status + "\">";
             item += "  <div class=\"item\">";
             item += "    <div style='background-image: url(img\/" + elm.img + ")' class=\"img\"><\/div>";
             item += "    <div class=\"like\"><\/div>";
