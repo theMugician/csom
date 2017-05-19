@@ -22,6 +22,11 @@
 
 	var container = null;
 	var panes = null;
+	var message_container = null;
+	var message_header = null;
+	var message_type = null;
+	var message_desc = null;
+	var message_button = null;
 	var $that = null;
 	var xStart = 0;
 	var yStart = 0;
@@ -85,9 +90,16 @@
 			//current_pane = panes.length - 1;
 			current_pane = 0;
 
+			message_container = $(".message");
+			message_header = $(".message h1");
+			message_type = $(".message h2");
+			message_desc = $(".message p");
+			message_button = $(".message .next.btn");
+
 			$(element).bind('touchstart mousedown', this.handler);
 			$(element).bind('touchmove mousemove', this.handler);
 			$(element).bind('touchend mouseup', this.handler);
+			message_button.bind('click', this.closeMessage);
 		},
 
 		showPane: function (index) {
@@ -95,16 +107,22 @@
 			current_pane = index;
 		},
 
-		showMessage: function (elm) {
-			message.show();
-			var cur = panes.eq(current_pane);
-			var type = cur.data("type");
-			var desc = cur.data("desc");
-
+		showMessage: function (item, chosen) {
+			$that.settings.handlerDisabled = true;
+			//var cur = panes.eq(current_pane);
+			var type = item.data("type");
+			var desc = item.data("desc");
+			var header = ( type === chosen ? "Correct!" : "Wrong!" );
+			var header_class = ( type === chosen ? "correct" : "error" );
+			message_container.addClass("display");
+			message_header.html(header).addClass(header_class);
+			message_type.html(type).addClass(type);
+			message_desc.html(desc);
 		},
 
 		closeMessage: function () {
-
+			$that.settings.handlerDisabled = false;
+			message_container.removeClass("display");
 		},
 
     renderList: function() {
@@ -153,21 +171,31 @@
 		},
 
 		dislike: function() {
-			panes.eq(current_pane).animate({"transform": "translate(-" + (pane_width) + "px," + (pane_width*-1.5) + "px) rotate(-60deg)"}, $that.settings.animationSpeed, function () {
-				if($that.settings.onDislike) {
-					$that.settings.onDislike(panes.eq(current_pane));
-				}
-				$that.next();
-			});
+			if(!$that.settings.handlerDisabled) {
+				panes.eq(current_pane).animate({"transform": "translate(-" + (pane_width) + "px," + (pane_width*-1.5) + "px) rotate(-60deg)"}, $that.settings.animationSpeed, function () {
+					$that.showMessage(panes.eq(current_pane), "Shack");
+					/*
+					if($that.settings.onDislike) {
+						$that.settings.onDislike(panes.eq(current_pane));
+					}
+					*/
+					$that.next();
+				});
+			}
 		},
 
 		like: function() {
-			panes.eq(current_pane).animate({"transform": "translate(" + (pane_width) + "px," + (pane_width*-1.5) + "px) rotate(60deg)"}, $that.settings.animationSpeed, function () {
-				if($that.settings.onLike) {
-					$that.settings.onLike(panes.eq(current_pane));
-				}
-				$that.next();
-			});
+			if(!$that.settings.handlerDisabled) {
+				panes.eq(current_pane).animate({"transform": "translate(" + (pane_width) + "px," + (pane_width*-1.5) + "px) rotate(60deg)"}, $that.settings.animationSpeed, function () {
+					$that.showMessage(panes.eq(current_pane), "Mansion");
+					/*
+					if($that.settings.onLike) {
+						$that.settings.onLike(panes.eq(current_pane));
+					}
+					*/
+					$that.next();
+				});
+			}	
 		},
 
 		handler: function (ev) {
@@ -228,16 +256,20 @@
 						if (opa >= 1) {
 							if (posX > 0) {
 								panes.eq(current_pane).animate({"transform": "translate(" + (pane_width) + "px," + (posY + pane_width) + "px) rotate(60deg)"}, $that.settings.animationSpeed, function () {
-									if($that.settings.onLike) {
-										$that.settings.onLike(panes.eq(current_pane));
+									$that.showMessage(panes.eq(current_pane), "Mansion");
+									/*if($that.settings.onLike) {
+										$that.settings.onLike(panes.eq(current_pane), "Mansion");
 									}
+									*/
 									$that.next();
 								});
 							} else {
 								panes.eq(current_pane).animate({"transform": "translate(-" + (pane_width) + "px," + (posY + pane_width) + "px) rotate(-60deg)"}, $that.settings.animationSpeed, function () {
+									$that.showMessage(panes.eq(current_pane), "Shack");
+									/*
 									if($that.settings.onDislike) {
-										$that.settings.onDislike(panes.eq(current_pane));
-									}
+										$that.settings.onDislike(panes.eq(current_pane), "Shack");
+									}*/
 									$that.next();
 								});
 							}

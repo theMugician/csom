@@ -201,6 +201,7 @@ nav {
     left: 0;
     z-index: 5;
     position: absolute;
+    transform: translate(3200px, 0);
     //transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -214,6 +215,9 @@ nav {
     top: 0;
     left: 0;
     transition: transform 700ms ease, background 700ms ease;
+    &.display {
+      transform: translate(0, 0);
+    }
     .mansion {
       font-family: 'Tangerine', cursive;
       font-size: 48px;
