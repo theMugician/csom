@@ -29,7 +29,10 @@
 	var message_type = null;
 	var message_desc = null;
 	var message_button = null;
+	var final_container = null;
+	var final_header = null;
 	var play_button = null;
+	var correct_count = 0;
 	var $that = null;
 	var xStart = 0;
 	var yStart = 0;
@@ -99,13 +102,18 @@
 			message_type = $(".message h2");
 			message_desc = $(".message p");
 			message_button = $(".message .next-btn.btn");
-			play_button = $(".modal .play.btn");
+			play_button = $(".home .play.btn");
+
+			final_container = $(".finish");
+			final_header = $(".finish .count");
+			reset_button = $(".finish .play.btn");
 
 			$(element).bind('touchstart mousedown', this.handler);
 			$(element).bind('touchmove mousemove', this.handler);
 			$(element).bind('touchend mouseup', this.handler);
 			message_button.bind('click', this.closeModal);
 			play_button.bind('click', this.play);
+			reset_button.bind('click', this.reset);
 		},
 
 		showPane: function (index) {
@@ -121,6 +129,7 @@
 			var img = "url(img/" + item.data("img");
 			var header = ( type === chosen ? "Correct!" : "Wrong!" );
 			var header_class = ( type === chosen ? "correct" : "error" );
+			if(type === chosen) { correct_count++};
 			modal.addClass("display");
 			message_container.css("background-image", img);
 			message_header.removeClass();
@@ -133,6 +142,9 @@
 		closeModal: function () {
 			$that.settings.handlerDisabled = false;
 			modal.removeClass("display");
+			if(current_pane === panes.length) {
+				$that.finish();
+			}
 		},
 
 		play: function () {
@@ -142,13 +154,24 @@
 			message_container.addClass("display");
 		},
 
+		finish: function () {
+			var outcome = "You got " + correct_count + " out of " + panes.length + " correct!";
+			message_container.removeClass("display");
+			final_header.html(outcome);
+			final_container.addClass("display");
+			modal.addClass('display');
+		},
+
 		reset: function () {
-			$that.
 			$that.settings.handlerDisabled = false;
+			correct_count = 0;
+			$that.renderList();
+			final_container.removeClass("display");	
 			modal.removeClass("display");
 		},
 
     renderList: function() {
+    	container.html("");
       var items = "";
       list.forEach(function(elm, i){
         var index = i + 1;

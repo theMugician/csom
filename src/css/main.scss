@@ -29,7 +29,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   outline: 0;
 }
 body {
-  line-height: 1;
+  line-height: 1.25;
   color: black;
   background: white;
 }
@@ -37,6 +37,9 @@ ol, ul {
   list-style: none;
 }
 /* tables still need 'cellspacing="0"' in the markup */
+strong {
+  font-weight: bold;
+}
 table {
   border-collapse: separate;
   border-spacing: 0;
@@ -134,8 +137,37 @@ button.btn {
   left: -5px;
 }
 /* Wrapper with padding */
-nav {
 
+.fb.btn {
+  position: relative;
+  background: $color-fb;
+  color: white;
+  &:hover {
+    background: $color-fb;
+    color: white;      
+  }
+  i {
+    position: absolute;
+    left: 15px;
+    top: 14px;
+  }
+}
+
+.play {
+  width: 180px;
+  margin: 0 auto;
+  background: $color-like;
+  color: #fff;
+  z-index: 2;
+  margin-top: 10px;
+  &:hover {
+    background: $color-like;
+    color: #fff;
+    z-index: 2;
+  }
+}
+
+nav {
   padding: 20px;
   display: flex;
   justify-content: space-between;
@@ -157,11 +189,17 @@ nav {
   }
   .social {
     .fb.btn {
+      position: relative;
       background: $color-fb;
       color: white;
       &:hover {
         background: $color-fb;
         color: white;      
+      }
+      i {
+        position: absolute;
+        left: 15px;
+        top: 14px;
       }
     }
   }
@@ -337,14 +375,12 @@ nav {
         font-family: 'Tangerine', cursive;
         font-size: 48px;
         color: $color-base;
-        margin-bottom: 10px;
         margin-top: 30px;
       }
       .Shack {
         font-family: 'Amatic SC', cursive;
         font-size: 40px;
         color: $color-base;
-        margin-bottom: 10px;
         margin-top: 30px;
       }
       .correct {
@@ -378,8 +414,37 @@ nav {
       }
     }  
     .finish {
+      height: 100%;
       position: relative;
+      //font-size: 18px;
       display: none;
+      flex-direction: column;
+      justify-content: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      &.display {
+        display: flex;
+      }
+      .btn {
+        position: relative;
+        width: 180px;
+        margin: 20px auto 0;
+      }
+      .fb.btn i {
+        position: absolute;
+        left: 15px;
+        top: -5px;
+      }
+      * {
+        margin-top: 20px;
+      }
+      h2 {
+        font-size: 24px;
+        &.count {
+          font-weight: bold;
+        }
+      }
     }
   }
   .like {
