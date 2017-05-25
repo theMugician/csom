@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "src/",
+      "node_modules/",
+      ".sass-cache/",
+      "README.md",
+      "package.json",
+      "Gruntfile.js",
+      ".gitignore",
+      "LICENSE"
+    ]
+  }
+}

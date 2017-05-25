@@ -6,6 +6,12 @@ $color-like: #48D2A0;
 $color-para: #9B9B9B;
 $color-fb: #3b5998;
 
+@mixin mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -207,6 +213,9 @@ nav {
 .wrap {
   height: 400px;
   padding: 20px;
+  @include mobile {
+    padding: 20px 10px;
+  }
 }
 
 #tinderslide {
@@ -514,9 +523,12 @@ nav {
 /* Action - buttons */
 
 .actions {
-  width: 608px;
+  width: 480px;
   margin: 0 auto;
   overflow: hidden;
+  @include mobile {
+    width: 320px;
+  }
   div {
     width: 50%;
     float: left;
