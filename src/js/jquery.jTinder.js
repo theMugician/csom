@@ -111,9 +111,9 @@
 			$(element).bind('touchstart mousedown', this.handler);
 			$(element).bind('touchmove mousemove', this.handler);
 			$(element).bind('touchend mouseup', this.handler);
-			message_button.bind('click', this.closeModal);
-			play_button.bind('click', this.play);
-			reset_button.bind('click', this.reset);
+			message_button.bind('touchstart click', this.closeModal);
+			play_button.bind('touchstart click', this.play);
+			reset_button.bind('touchstart click', this.reset);
 		},
 
 		showPane: function (index) {
@@ -164,10 +164,14 @@
 
 		reset: function () {
 			$that.settings.handlerDisabled = false;
-			correct_count = 0;
 			$that.renderList();
+			correct_count = 0;
+			current_pane = 0;
+      panes = $(">ul>li", "div#tinderslide");
+			pane_count = panes.length;
 			final_container.removeClass("display");	
 			modal.removeClass("display");
+			message_container.addClass("display");
 		},
 
     renderList: function() {
