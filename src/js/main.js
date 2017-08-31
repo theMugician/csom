@@ -34,7 +34,7 @@ $('.fb.btn').click(function(e){
   var obj = {
     method: 'feed',
     display: 'popup',    
-    link: 'https://www.shackormansion.com',
+    link: 'https://shackormansion.com',
     source: 'https://shack-or-mansion.firebaseapp.com/img/share.jpg',
     //name: 'Shack or Mansion',
     //caption: 'Reference Documentation',
